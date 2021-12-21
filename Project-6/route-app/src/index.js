@@ -1,31 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './index.css';
-import One from './One';
-import Two from './Two';
-import Three from './Three';
-import Four from './Four';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import Expenses from './Expenses';
+import Invoices from './Invoices';
 import NoMatch from './NoMatch';
-import Fourpointone from './Fourpointone';
-import { Router, Route, browserHistory } from 'react-router'
+import One from './One';
+import Invoice from './Invoice';
 
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path="/" component={App}></Route>
-    <Route path="/One" component={One}></Route>
-    <Route path="/Two" component={Two}></Route>
-    <Route path="/Three" component={Three}></Route>
-    <Route path="/Four" component={Four}>
-      <Route path="/Four/:id" component={Fourpointone} />
-    </Route>
-    <Route path="*" component={NoMatch}></Route>
-
-  </Router>
-
-
-
-
-,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route path="expenses" element={<Expenses />} />
+        <Route path="invoices" element={<Invoices />}>
+          <Route path=":invoiceId" element={<Invoice />} />
+        </Route>
+      </Route>
+      <Route path="*" element={<NoMatch />} />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

@@ -9,15 +9,14 @@ module.exports = {
 		filename:"build/bundle.js",
         sourceMapFilename: "build/bundle.map"
 	},
-    devtool: '#source-map',
-
+    devtool: 'source-map',
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.jsx?$/,
 				exclude: /(node_modules|bower_components)/,
 				loader: 'babel-loader',
-				query:{
+				options:{
 					presets:['react', 'es2015']
 				}
 			}

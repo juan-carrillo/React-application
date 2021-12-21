@@ -1,18 +1,13 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, { Component } from "react";
 
 class Four extends Component {
-  render(){
-    return(
-      <div>
-        <h1>I am Four component</h1>
-          <ul>
-            <li><Link to="/Four/123">Four Point one</Link></li>
-            </ul>
-            {this.props.children}
-      </div>
-    );
-  }
+    render() {
+        return(
+            <div>
+                <h1>I am Four component</h1>
+            </div>
+        );
+    }
 }
 
 export default Four;

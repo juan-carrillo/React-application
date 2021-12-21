@@ -1,27 +1,18 @@
-import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Link } from 'react-router';
+import { Link, Outlet } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React Router Class</h2>
-
-        </div>
-        <ul>
-          <li><Link to="/One">One</Link></li>
-          <li><Link to="/Two">Two</Link></li>
-          <li><Link to="/Three">Three</Link></li>
-          <li><Link to="/Four">Four</Link></li>
-        </ul>
-
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div>
+      <h1>Bookkeeper!</h1>
+      <nav style={{ borderBottom: "solid 1px", paddingBottom: "1rem" }}>
+        <Link to="/invoices">Invoices</Link> |{" "}
+        <Link to="/expenses">Expenses</Link>
+      </nav>
+      <Outlet />
+    </div>
+  );
 }
 
 export default App;
